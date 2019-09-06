@@ -5,7 +5,7 @@ Although Sparkfun Edge has the camera interface (OV7670), the support or the api
 ## Table of contents
 -   [Requirements](#requirements)
 -   [Setup](#setup)
--   [Compiling & flashing](#compiling and flashing)
+-   [Compiling & flashing](#compilingandflashing)
 -   [Running](#running)
 -   [Debugging](#debugging)
 
