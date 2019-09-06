@@ -121,5 +121,5 @@ You will see the score of person found and noperson found
 When the sample is running, check the LEDs to determine whether the inference is running correctly.The orange LED indicates that no person was found, and the green LED indicates a person was found. The red LED should never turn on, since it indicates an error.
 
 ## To-Do
--   [Creating a code which automatically creates the image.cc from the image]
--   [Better and more infernece on images]
+-   Creating a code which automatically creates the image.cc from the image
+-   Better and more infernece on images
