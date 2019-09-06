@@ -3,11 +3,11 @@
 Micro Vision is an example project which shows how you can use Tensorflow Lite to run a 250 kilobyte neural network to recognize people in the images provided. It is designed to run on Sparkfun Edge micro controller. 
 Although Sparkfun Edge has the camera interface (OV7670), the support or the api to interface with the camera module is not available. So for this example, inference is done on the images rather than the frames from the camera. 
 ## Table of contents
--   [Requirements] (#requirements)
--   [Setup] (#setup)
--   [Compiling & flashing] (#compiling and flashing)
--   [Running] (#running)
--   [Debugging] (#debugging)
+-   [Requirements](#requirements)
+-   [Setup](#setup)
+-   [Compiling & flashing](#compiling and flashing)
+-   [Running](#running)
+-   [Debugging](#debugging)
 
 ## Requirements:
 *Git
