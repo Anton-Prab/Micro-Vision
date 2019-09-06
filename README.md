@@ -28,39 +28,40 @@ Take an image and convert it into 96*96 bmp 24 bit
 Steps to get image into data
 1. Copy the person_image_data.cc person_image_data.h as two  new files say  new_person_image_data.cc and new_person_data.h Be sure that h file and cc file names are same and reference inside the H files reflect the correct names
 Content of header file looks like this
-#ifndef TENSORFLOW_LITE_EXPERIMENTAL_MICRO_EXAMPLES_MICRO_VISION_NEW_PERSON_IMAGE_DATA_H_
-#define TENSORFLOW_LITE_EXPERIMENTAL_MICRO_EXAMPLES_MICRO_VISION_NEW_PERSON_IMAGE_DATA_H_
 
-#include <cstdint>
+	#ifndef TENSORFLOW_LITE_EXPERIMENTAL_MICRO_EXAMPLES_MICRO_VISION_NEW_PERSON_IMAGE_DATA_H_
+	#define TENSORFLOW_LITE_EXPERIMENTAL_MICRO_EXAMPLES_MICRO_VISION_NEW_PERSON_IMAGE_DATA_H_
 
-extern const int g_new_person_data_size;
-extern const uint8_t g_new_person_data[];
+	#include <cstdint>
 
-#endif  
+	extern const int g_new_person_data_size;
+	extern const uint8_t g_new_person_data[];
+
+	#endif  
 
 Partial Content of the imagedata.cc looks like this
 
-#include "tensorflow/lite/experimental/micro/examples/micro_vision/new_person_image_data.h"
+	#include "tensorflow/lite/experimental/micro/examples/micro_vision/new_person_image_data.h"
 
-#include "tensorflow/lite/experimental/micro/examples/micro_vision/model_settings.h"
+	#include "tensorflow/lite/experimental/micro/examples/micro_vision/model_settings.h"
 
-const int new_person_data_size = 27648;
-const uint8_t g_new_person_data[new_person_data_size] = {
-  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x00, 0x00, 0x80, 0x00, 0x00
-       2) xxd -s 54 filename.bmp test.out
-Copy the contents of the out file and put it inside the new_person_image_data.cc, below the line 
-const uint8_t g_new_person_data[new_person_data_size] = {
+	const int new_person_data_size = 27648;
+	const uint8_t g_new_person_data[new_person_data_size] = {
+	  0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x00, 0x00, 0x80, 0x00, 0x00
+	       2) xxd -s 54 filename.bmp test.out
+	Copy the contents of the out file and put it inside the new_person_image_data.cc, below the line 
+	const uint8_t g_new_person_data[new_person_data_size] = {
 
-3) From the extracted microvision example, change the file – main.cc 
-In stead of getting file from provider, we need to provide a file data here.
-Below the while loop, change the content to reflect the newly generated data
-while (true) {
-    // Get image from provider.
-	  //const uint8_t* person_data = g_person_data;
-	  const uint8_t* person_data = g_new_person_data;
-	    for (int i = 0; i < input->bytes; ++i) {
-	      input->data.uint8[i] = person_data[i];
-	    }
+	3) From the extracted microvision example, change the file – main.cc 
+	In stead of getting file from provider, we need to provide a file data here.
+	Below the while loop, change the content to reflect the newly generated data
+	while (true) {
+	    // Get image from provider.
+		  //const uint8_t* person_data = g_person_data;
+		  const uint8_t* person_data = g_new_person_data;
+		    for (int i = 0; i < input->bytes; ++i) {
+		      input->data.uint8[i] = person_data[i];
+		    }
 
 ## Compiling the code
 After a while, all files will get downloaded. Now run the command
@@ -94,6 +95,7 @@ Then run the ommand
 
 Then flash the bin to device, after setting device and baudrate
 Identify the DEVICENAME
+
 	ls /dev/tty* 
 	export DEVICENAME=put your device name here
 
@@ -101,6 +103,7 @@ Identify the DEVICENAME
 
 Hold button 14 and reset together, release reset..
 Still holding the button 14 , issue this command below
+
 	python3 tensorflow/lite/experimental/micro/tools/make/downloads/AmbiqSuite-Rel2.0.0/tools/apollo3_scripts/uart_wired_update.py \
 	-b ${BAUD_RATE} ${DEVICENAME} \
 	-r 1 \
