@@ -8,6 +8,7 @@ Although Sparkfun Edge has the camera interface (OV7670), the support or the api
 -   [Compiling & flashing](#compiling-the-code)
 -   [Running](#running)
 -   [Debugging](#debugging)
+-   [To-Do](#to-do)
 
 ## Requirements:
 -   Git
@@ -119,3 +120,6 @@ You will see the score of person found and noperson found
 ## Debugging Image Capture
 When the sample is running, check the LEDs to determine whether the inference is running correctly.The orange LED indicates that no person was found, and the green LED indicates a person was found. The red LED should never turn on, since it indicates an error.
 
+## To-Do
+-   [Creating a code which automatically creates the image.cc from the image]
+-   [Better and more infernece on images]
