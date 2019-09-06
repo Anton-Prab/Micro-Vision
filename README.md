@@ -10,11 +10,11 @@ Although Sparkfun Edge has the camera interface (OV7670), the support or the api
 -   [Debugging](#debugging)
 
 ## Requirements:
-*Git
-*Python3
-*Pip for Python3
-*Make 4.2.1 or higher
-*Tensorflow repository
+-   Git
+-   Python3
+-   Pip for Python3
+-   Make 4.2.1 or higher
+-   Tensorflow repository
 
 ## Setup :
 Download the Tensorflow repository and extract it
