@@ -20,7 +20,7 @@ Although Sparkfun Edge has the camera interface (OV7670), the support or the api
 Download the Tensorflow repository and extract it
 git clone https://github.com/tensorflow/tensorflow.git
 
-###Install necessary python packages
+### Install necessary python packages
 	pip3 install pycrypto pyserial –user
 Convert Image to byte data
 Take an image and convert it into 96*96 bmp 24 bit 
