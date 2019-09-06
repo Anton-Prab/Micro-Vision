@@ -29,6 +29,7 @@ Steps to get image into data
 1. Copy the person_image_data.cc person_image_data.h as two  new files say  new_person_image_data.cc and new_person_data.h Be sure that h file and cc file names are same and reference inside the H files reflect the correct names
 Content of header file looks like this
 
+
 	#ifndef TENSORFLOW_LITE_EXPERIMENTAL_MICRO_EXAMPLES_MICRO_VISION_NEW_PERSON_IMAGE_DATA_H_
 	#define TENSORFLOW_LITE_EXPERIMENTAL_MICRO_EXAMPLES_MICRO_VISION_NEW_PERSON_IMAGE_DATA_H_
 
@@ -38,6 +39,7 @@ Content of header file looks like this
 	extern const uint8_t g_new_person_data[];
 
 	#endif  
+	
 
 Partial Content of the imagedata.cc looks like this
 
@@ -65,9 +67,11 @@ Partial Content of the imagedata.cc looks like this
 
 ## Compiling the code
 After a while, all files will get downloaded. Now run the command
+
 	make -f tensorflow/lite/experimental/micro/tools/make/Makefile TARGET=sparkfun_edge micro_vision_bin
 
 Check whether bin file is there in the folder
+
 	tensorflow/lite/experimental/micro/tools/make/gen/sparkfun_edge_cortex-m4/bin
 
 If you are funning for the first time, change the name of file to sign
