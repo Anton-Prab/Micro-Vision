@@ -64,48 +64,48 @@ while (true) {
 
 ## Compiling the code
 After a while, all files will get downloaded. Now run the command
-make -f tensorflow/lite/experimental/micro/tools/make/Makefile TARGET=sparkfun_edge micro_vision_bin
+	make -f tensorflow/lite/experimental/micro/tools/make/Makefile TARGET=sparkfun_edge micro_vision_bin
 
 Check whether bin file is there in the folder
-tensorflow/lite/experimental/micro/tools/make/gen/sparkfun_edge_cortex-m4/bin
+	tensorflow/lite/experimental/micro/tools/make/gen/sparkfun_edge_cortex-m4/bin
 
 If you are funning for the first time, change the name of file to sign
 
-cp tensorflow/lite/experimental/micro/tools/make/downloads/AmbiqSuite-Rel2.0.0/tools/apollo3_scripts/keys_info0.py \
-tensorflow/lite/experimental/micro/tools/make/downloads/AmbiqSuite-Rel2.0.0/tools/apollo3_scripts/keys_info.py
+	cp tensorflow/lite/experimental/micro/tools/make/downloads/AmbiqSuite-Rel2.0.0/tools/apollo3_scripts/keys_info0.py \
+	tensorflow/lite/experimental/micro/tools/make/downloads/AmbiqSuite-Rel2.0.0/tools/apollo3_scripts/keys_info.py
 Now geenreate signed bin
 
-python3 tensorflow/lite/experimental/micro/tools/make/downloads/AmbiqSuite-Rel2.0.0/tools/apollo3_scripts/create_cust_image_blob.py \
---bin tensorflow/lite/experimental/micro/tools/make/gen/sparkfun_edge_cortex-m4/bin/micro_vision.bin \
---load-address 0xC000 \
---magic-num 0xCB \
--o main_nonsecure_ota \
---version 0x0
+	python3 tensorflow/lite/experimental/micro/tools/make/downloads/AmbiqSuite-Rel2.0.0/tools/apollo3_scripts/create_cust_image_blob.py \
+	--bin tensorflow/lite/experimental/micro/tools/make/gen/sparkfun_edge_cortex-m4/bin/micro_vision.bin \
+	--load-address 0xC000 \
+	--magic-num 0xCB \
+	-o main_nonsecure_ota \
+	--version 0x0
 
 
 Then run the ommand
 
-python3 tensorflow/lite/experimental/micro/tools/make/downloads/AmbiqSuite-Rel2.0.0/tools/apollo3_scripts/create_cust_wireupdate_blob.py \
---load-address 0x20000 \
---bin main_nonsecure_ota.bin \
--i 6 \
--o main_nonsecure_wire \
---options 0x1
+	python3 tensorflow/lite/experimental/micro/tools/make/downloads/AmbiqSuite-Rel2.0.0/tools/apollo3_scripts/create_cust_wireupdate_blob.py \
+	--load-address 0x20000 \
+	--bin main_nonsecure_ota.bin \
+	-i 6 \
+	-o main_nonsecure_wire \
+	--options 0x1
 
 Then flash the bin to device, after setting device and baudrate
 Identify the DEVICENAME
-ls /dev/tty* 
-export DEVICENAME=put your device name here
+	ls /dev/tty* 
+	export DEVICENAME=put your device name here
 
-export BAUD_RATE=921600
+	export BAUD_RATE=921600
 
 Hold button 14 and reset together, release reset..
 Still holding the button 14 , issue this command below
-python3 tensorflow/lite/experimental/micro/tools/make/downloads/AmbiqSuite-Rel2.0.0/tools/apollo3_scripts/uart_wired_update.py \
--b ${BAUD_RATE} ${DEVICENAME} \
--r 1 \
--f main_nonsecure_wire.bin \
--i 6
+	python3 tensorflow/lite/experimental/micro/tools/make/downloads/AmbiqSuite-Rel2.0.0/tools/apollo3_scripts/uart_wired_update.py \
+	-b ${BAUD_RATE} ${DEVICENAME} \
+	-r 1 \
+	-f main_nonsecure_wire.bin \
+	-i 6
 
 Once you see “reset done”, press reset key
 
@@ -113,7 +113,7 @@ Once you see “reset done”, press reset key
 
 Use screen command to see the output
 
-screen /dev/ttyUSB0  115200
+	screen /dev/ttyUSB0  115200
 
 You will see the score of person found and noperson found
 
